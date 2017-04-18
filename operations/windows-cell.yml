@@ -73,6 +73,16 @@
             ca_cert: "((etcd_server.ca))"
             machines:
             - cf-etcd.service.cf.internal
+    - name: route_emitter_windows
+      release: diego
+      properties:
+        diego:
+          route_emitter:
+            local_mode: true
+            bbs:
+              ca_cert: "((diego_bbs_client.ca))"
+              client_cert: "((diego_bbs_client.certificate))"
+              client_key: "((diego_bbs_client.private_key))"
 
 - type: replace
   path: /releases/-
